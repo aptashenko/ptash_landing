@@ -1,0 +1,4 @@
+@import "@/assets/styles/normalize.css";
+* {
+  box-sizing: border-box;
+}
