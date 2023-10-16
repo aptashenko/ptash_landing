@@ -1,20 +1,31 @@
 <template>
   <default-layout>
-    body
+    <main-section />
+    <about-section />
+    <services-section />
   </default-layout>
-  <base-modal
-      v-if="modals.modalState.component"
-  />
+  <transition name="local-fade" appear mode="out-in">
+    <base-modal
+        v-if="modals.modalState.component"
+    />
+  </transition>
 </template>
 
 <script setup>
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import BaseModal from "@/components/modals/BaseModal.vue";
+import MainSection from "@/components/sections/MainSection.vue";
+import AboutSection from "@/components/sections/AboutSection/index.vue";
+import ServicesSection from "@/components/sections/ServicesSection/index.vue";
+
 import {useModalStore} from "@/store/modalsStore";
 
 const modals = useModalStore()
 </script>
 
-<style scoped>
+<style lang="scss">
+body {
+  background: $velvet-0;
+}
 </style>
 

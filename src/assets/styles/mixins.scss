@@ -3,3 +3,10 @@
   margin: 0 auto;
   padding: 0 30px;
 }
+
+@mixin wrapper($radius) {
+  background: white;
+  border-radius: $radius;
+  box-shadow: 0px 4px 16px 0px rgba(187, 176, 227, 0.20);
+  padding: 30px;
+}

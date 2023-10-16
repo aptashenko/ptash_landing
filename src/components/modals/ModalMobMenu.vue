@@ -1,14 +1,15 @@
 <template>
     <nav class="mobile-menu">
-      <ul class="header__list">
+      <the-logo />
+      <ul class="mobile-menu__list">
         <li
             v-for="item of menu"
             :key="item.label"
-            class="header__item"
+            class="mobile-menu__item"
         >
           <a
               :href="item.link"
-              class="header__link text text-lg"
+              class="mobile-menu__link text text-lg"
           >
             {{item.label}}
           </a>
@@ -18,6 +19,8 @@
 </template>
 
 <script setup>
+import TheLogo from "@/components/TheLogo.vue";
+
 const menu = [
   {
     label: 'Home',
@@ -44,9 +47,30 @@ const menu = [
 
 <style lang="scss">
 .mobile-menu {
-  margin-left: auto;
-  width: 300px;
+  width: 70%;
   height: 100%;
   background: #fff;
+
+  padding: 30px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) -10px 0px 15px -3px;
+
+  &__list {
+    height: fit-content;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $black-100;
+  }
+}
+
+.overlay {
+  place-items: flex-end !important;
 }
 </style>

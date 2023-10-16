@@ -66,10 +66,13 @@ const menu = [
 <style lang="scss">
 .header {
   @include container;
-  padding: 20px;
+  @include wrapper(100px);
+
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
 
   &__navigation {
     flex-grow: 1;

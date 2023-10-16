@@ -1,29 +1,46 @@
 <template>
   <div
       class="overlay"
-      @click.self="modals.closeModal"
+      @click.self="handleClose"
       aria-modal="true"
       role="dialog"
       tabindex="-1"
   >
-    <component
-        :is="modals.modalState.component"
-        v-bind="modals.modalState.props"
-    />
+    <transition name="slide-horizontal-to-left" appear mode="out-in">
+      <component
+          v-show="show"
+          :is="modals.modalState.component"
+          v-bind="modals.modalState.props"
+      />
+    </transition>
   </div>
 </template>
 
 <script setup>
-import {onMounted, onUnmounted} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 import {useModalStore} from "@/store/modalsStore";
-
+import {useTimeOut} from "@/composables/useTimeOut";
+const show = ref(false)
 const modals = useModalStore()
+const showModalWindow = () => {
+  show.value = !show.value
+}
+
+const { setTimeOut:onOpen } = useTimeOut(300, showModalWindow)
+const { setTimeOut:onClose } = useTimeOut(300, modals.closeModal)
+
+const handleClose = () => {
+  showModalWindow()
+  onClose()
+}
+
 
 function keydownListener(event) {
   if (event.key === "Escape") modals.closeModal();
 }
 
 onMounted(() => {
+  onOpen()
   document.addEventListener("keydown", keydownListener);
 });
 
