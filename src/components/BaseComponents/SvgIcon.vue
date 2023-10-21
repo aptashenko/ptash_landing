@@ -1,7 +1,7 @@
 <template>
   <component
       :is="icon"
-      :class="[size]"
+      :class="[typeof size === 'string' ? size : 'custom']"
       :style="{transform: `rotate(${rotate}deg)`}"
   />
 </template>
@@ -21,6 +21,9 @@ const { name, size } = defineProps({
   rotate: {
     type: String,
     default: '0'
+  },
+  custom: {
+    type: Object,
   }
 })
 
@@ -41,5 +44,10 @@ const icon = defineAsyncComponent(() => import(`../../assets/images/icons/${name
 .sm {
   width: 24px;
   height: 24px;
+}
+
+.custom {
+  width: v-bind('size.width');
+  height: v-bind('size.height');
 }
 </style>

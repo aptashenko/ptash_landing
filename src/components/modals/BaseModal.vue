@@ -6,7 +6,7 @@
       role="dialog"
       tabindex="-1"
   >
-    <transition name="slide-horizontal-to-left" appear mode="out-in">
+    <transition :name="transitionName" appear mode="out-in">
       <component
           v-show="show"
           :is="modals.modalState.component"
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import {onMounted, onUnmounted, ref} from "vue";
+import {computed, onMounted, onUnmounted, ref} from "vue";
 import {useModalStore} from "@/store/modalsStore";
 import {useTimeOut} from "@/composables/useTimeOut";
 const show = ref(false)
@@ -33,8 +33,9 @@ const handleClose = () => {
   showModalWindow()
   onClose()
 }
-
-
+const isBurgerModal = computed(() => modals.modalState.component.__name === 'ModalMobMenu')
+const transitionName = computed(() => isBurgerModal.value ? 'slide-horizontal-to-left' : 'local-fade')
+const overlayPlaceItems = computed(() => isBurgerModal.value ? 'flex-end' : 'center')
 function keydownListener(event) {
   if (event.key === "Escape") modals.closeModal();
 }
@@ -61,7 +62,7 @@ onUnmounted(() => {
   z-index: 99;
 
   display: grid;
-  place-items: center;
+  place-items: v-bind(overlayPlaceItems);
 
   overflow: scroll;
 

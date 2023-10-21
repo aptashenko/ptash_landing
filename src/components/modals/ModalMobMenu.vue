@@ -52,8 +52,4 @@ const modals = useModalStore()
     color: $black-100;
   }
 }
-
-.overlay {
-  place-items: flex-end !important;
-}
 </style>

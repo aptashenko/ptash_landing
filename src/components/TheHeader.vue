@@ -28,7 +28,7 @@
 
 <script setup>
 import TheLogo from "@/components/TheLogo.vue";
-import BaseButton from "@/components/BaseButton.vue";
+import BaseButton from "@/components/BaseComponents/BaseButton.vue";
 import ModalMobMenu from "@/components/modals/ModalMobMenu.vue";
 
 import {useModalStore} from "@/store/modalsStore";

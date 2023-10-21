@@ -41,6 +41,7 @@ const mainClass = computed(() => ({
 
 <style lang="scss" scoped>
 .default {
+  font-family: 'Open Sans', sans-serif;
   border-radius: 6px;
   background: $velvet-100;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
@@ -53,6 +54,12 @@ const mainClass = computed(() => ({
 
   &:hover {
     background: $velvet-90;
+  }
+
+  &[disabled] {
+    background: #cbcbcb;
+    color: #e3e3e3;
+    cursor: default;
   }
 }
 

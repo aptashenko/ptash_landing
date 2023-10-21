@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import BaseImage from "@/components/shared/BaseImage.vue";
+import BaseImage from "@/components/BaseComponents/BaseImage.vue";
 const props = defineProps({
   avatar: {
     type: String,

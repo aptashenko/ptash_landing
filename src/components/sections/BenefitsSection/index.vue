@@ -65,7 +65,7 @@ import BenefitCard from "@/components/sections/BenefitsSection/BenefitCard.vue";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import {useSwiperApi} from "@/composables/useSwiperApi";
-import BaseButton from "@/components/BaseButton.vue";
+import BaseButton from "@/components/BaseComponents/BaseButton.vue";
 const { initSwiper, nextSlide, prevSlide } = useSwiperApi()
 
 const benefitsList = [

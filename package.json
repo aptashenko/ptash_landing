@@ -10,6 +10,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
     "pinia": "^2.1.7",
     "sass": "^1.69.3",
     "swiper": "^10.3.1",

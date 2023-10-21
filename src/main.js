@@ -1,6 +1,6 @@
 import './assets/styles/main.css'
 
-import SvgIcon from "@/components/shared/SvgIcon.vue";
+import SvgIcon from "@/components/BaseComponents/SvgIcon.vue";
 
 import { createApp } from 'vue'
 import { createPinia } from "pinia";

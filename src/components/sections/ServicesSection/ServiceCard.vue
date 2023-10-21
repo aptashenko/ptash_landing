@@ -12,12 +12,22 @@
     <base-button
         label="Call us"
         class="service-card__button"
+        @click="openCallModal"
     />
   </li>
 </template>
 <script setup>
-import BaseButton from "@/components/BaseButton.vue";
+import BaseButton from "@/components/BaseComponents/BaseButton.vue";
 import {computed} from "vue";
+import {useModalStore} from "@/store/modalsStore";
+import CallUsModal from "@/components/modals/CallUsModal.vue";
+const modals = useModalStore()
+const openCallModal = () => {
+  modals.openModal({
+    component: CallUsModal
+  })
+}
+
 const props = defineProps({
   icon: {
     type: String,
