@@ -1,5 +1,5 @@
 <template>
-  <section-layout>
+  <section-layout id="about">
     <template #title>
       About us
     </template>
@@ -7,21 +7,21 @@
       Where did our story begin?
     </template>
     <template #body>
-      <about-list>
+      <cards-list>
         <about-card v-for="item of aboutText">
           <template #text>
             {{item.text}}
           </template>
         </about-card>
-      </about-list>
+      </cards-list>
     </template>
   </section-layout>
 </template>
 
 <script setup>
 import AboutCard from "@/components/sections/AboutSection/AboutCard.vue";
-import AboutList from "@/components/sections/AboutSection/AboutList.vue";
 import SectionLayout from "@/layouts/SectionLayout.vue";
+import CardsList from "@/components/sections/CardsList.vue";
 
 const aboutText = [
   {

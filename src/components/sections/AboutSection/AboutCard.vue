@@ -16,9 +16,6 @@
   background: #FFF;
   box-shadow: -1px 1px 20px 0px rgba(128, 128, 128, 0.10);
 
-  display: flex;
-  flex-direction: column;
-
   transition: all .25s ease;
 
   &:hover {

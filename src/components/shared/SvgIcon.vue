@@ -2,6 +2,7 @@
   <component
       :is="icon"
       :class="[size]"
+      :style="{transform: `rotate(${rotate}deg)`}"
   />
 </template>
 
@@ -16,6 +17,10 @@ const { name, size } = defineProps({
   size: {
     type: String,
     default: 'md'
+  },
+  rotate: {
+    type: String,
+    default: '0'
   }
 })
 

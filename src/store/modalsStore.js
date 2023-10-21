@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 const basicState = { component: null, props: {} };
-
 export const useModalStore = defineStore("ModalStore", () => {
     const modalState = ref(basicState)
 

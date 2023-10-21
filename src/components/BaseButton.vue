@@ -4,7 +4,7 @@
       :class="[mainClass]"
   >
     <template v-if="!label && icon">
-      <svg-icon :name="icon.name" />
+      <svg-icon :name="icon.name" :rotate="icon.rotate" />
     </template>
     <template v-if="label && !icon">
       {{label}}

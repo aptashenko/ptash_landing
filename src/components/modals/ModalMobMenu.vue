@@ -3,9 +3,10 @@
       <the-logo />
       <ul class="mobile-menu__list">
         <li
-            v-for="item of menu"
+            v-for="item of main.menu"
             :key="item.label"
             class="mobile-menu__item"
+            @click="modals.closeModal"
         >
           <a
               :href="item.link"
@@ -20,29 +21,10 @@
 
 <script setup>
 import TheLogo from "@/components/TheLogo.vue";
-
-const menu = [
-  {
-    label: 'Home',
-    link: '#',
-  },
-  {
-    label: 'About us',
-    link: '#',
-  },
-  {
-    label: 'Services',
-    link: '#',
-  },
-  {
-    label: 'Benefits',
-    link: '#'
-  },
-  {
-    label: 'Reviews',
-    link: '#'
-  }
-]
+import {useMainStore} from "@/store/mainStore";
+import {useModalStore} from "@/store/modalsStore";
+const main = useMainStore()
+const modals = useModalStore()
 </script>
 
 <style lang="scss">
@@ -62,6 +44,7 @@ const menu = [
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 20px;
   }
 
   &__link {

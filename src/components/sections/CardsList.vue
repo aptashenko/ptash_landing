@@ -1,22 +1,24 @@
 <template>
-  <ul class="about-us-list">
+  <ul class="cards-list">
     <slot />
   </ul>
 </template>
-
 <script setup>
 
 </script>
 
 <style lang="scss">
-.about-us-list {
+.cards-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+
+  width: 100%;
+  margin: 0 auto;
+
   padding: 0;
 
-  @media screen and (max-width: 992px) {
-    flex-direction: column;
-  }
+  gap: 10px;
+
+  list-style: none;
 }
 </style>

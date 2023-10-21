@@ -4,7 +4,7 @@
     <nav class="header__navigation">
       <ul class="header__list">
         <li
-            v-for="item of menu"
+            v-for="item of main.menu"
             :key="item.label"
             class="header__item"
         >
@@ -32,35 +32,16 @@ import BaseButton from "@/components/BaseButton.vue";
 import ModalMobMenu from "@/components/modals/ModalMobMenu.vue";
 
 import {useModalStore} from "@/store/modalsStore";
+import {useMainStore} from "@/store/mainStore";
 
 const modals = useModalStore()
+const main = useMainStore()
+
 const openMobileMenu = () => {
   modals.openModal({
     component: ModalMobMenu
   })
 }
-const menu = [
-  {
-    label: 'Home',
-    link: '#',
-  },
-  {
-    label: 'About us',
-    link: '#',
-  },
-  {
-    label: 'Services',
-    link: '#',
-  },
-  {
-    label: 'Benefits',
-    link: '#'
-  },
-  {
-    label: 'Reviews',
-    link: '#'
-  }
-]
 </script>
 
 <style lang="scss">
@@ -83,6 +64,9 @@ const menu = [
   }
 
   &__burger {
+    width: 40px;
+    height: 40px;
+
     @media screen and (min-width: 993px) {
       display: none;
     }
